@@ -4,35 +4,55 @@ on:
     branches: [ master ]
 
 jobs:
-  build-root:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: asdf-vm/actions/install@v1
-    - run: asdf plugin list
-    - run: asdf current
-    - run: asdf current helm
 
-  build-sub-only:
+  build-sub-only-v1_0_0:
+    name: Build Sub Only (v1.0.0)
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: terraform
     steps:
     - uses: actions/checkout@v2
-    - uses: asdf-vm/actions/install@v1
+    - uses: asdf-vm/actions/install@v1.0.0
     - run: asdf plugin list
     - run: asdf current
     - run: asdf current terraform
 
-  build-sub-override:
+  build-sub-override-v1_0_0:
+    name: Build Sub Override (v1.0.0)
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: helm3
     steps:
     - uses: actions/checkout@v2
-    - uses: asdf-vm/actions/install@v1
+    - uses: asdf-vm/actions/install@v1.0.0
+    - run: asdf plugin list
+    - run: asdf current
+    - run: asdf current helm
+
+  build-sub-only-master:
+    name: Build Sub Only (master)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform
+    steps:
+    - uses: actions/checkout@v2
+    - uses: asdf-vm/actions/install@master
+    - run: asdf plugin list
+    - run: asdf current
+    - run: asdf current terraform
+
+  build-sub-override-master:
+    name: Build Sub Override (master)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: helm3
+    steps:
+    - uses: actions/checkout@v2
+    - uses: asdf-vm/actions/install@master
     - run: asdf plugin list
     - run: asdf current
     - run: asdf current helm
