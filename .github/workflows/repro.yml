@@ -11,6 +11,7 @@ jobs:
     - uses: asdf-vm/actions/install@v1
     - run: asdf plugin list
     - run: asdf current
+    - run: asdf current helm
 
   build-sub-only:
     runs-on: ubuntu-latest
@@ -21,6 +22,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: asdf-vm/actions/install@v1
     - run: asdf plugin list
+    - run: asdf current
     - run: asdf current terraform
 
   build-sub-override:
@@ -32,4 +34,5 @@ jobs:
     - uses: actions/checkout@v2
     - uses: asdf-vm/actions/install@v1
     - run: asdf plugin list
+    - run: asdf current
     - run: asdf current helm
