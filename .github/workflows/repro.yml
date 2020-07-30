@@ -14,6 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: asdf-vm/actions/install@v1.0.0
+    - run: pwd
     - run: asdf plugin list
     - run: asdf current
     - run: asdf current terraform
@@ -27,6 +28,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: asdf-vm/actions/install@v1.0.0
+    - run: pwd
     - run: asdf plugin list
     - run: asdf current
     - run: asdf current helm
@@ -40,6 +42,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: asdf-vm/actions/install@master
+    - run: pwd
     - run: asdf plugin list
     - run: asdf current
     - run: asdf current terraform
@@ -53,6 +56,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: asdf-vm/actions/install@master
+    - run: pwd
     - run: asdf plugin list
     - run: asdf current
     - run: asdf current helm
